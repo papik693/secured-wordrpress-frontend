@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { FaUserCircle } from 'react-icons/fa'
 import { MdKeyboardArrowDown } from 'react-icons/md'
 import useMe from '../hooks/useMe'
@@ -6,8 +7,13 @@ import { cn } from '../utils/cn'
 import Logout from './Logout'
 
 const UserMenu = () => {
-  const { data: me } = useMe()
+  const { data: me, isLoading } = useMe()
   const [isOpen, setIsOpen] = useState(false)
+
+  if (isLoading) {
+    return <AiOutlineLoading3Quarters className="animate-spin" />
+  }
+
   return (
     <div className="absolute">
       <button
