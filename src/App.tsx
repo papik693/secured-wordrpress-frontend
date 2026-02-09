@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify'
 import Layout from './layouts/Layout'
 import Home from './pages/Home'
 import Login from './pages/Login'
+import NotFound from './pages/NotFound'
 import SignUp from './pages/SignUp'
 import Users from './pages/Users'
 import GuestRoute from './routes/GuestRoute'
@@ -25,6 +26,7 @@ const App = () => {
                 <Route path="/users" element={<Users />} />
               </Route>
             </Route>
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </div>
