@@ -4,7 +4,7 @@ import SidebarLink from './SidebarLink'
 
 const Sidebar = () => {
   return (
-    <div className="border-r-2 border-[#292929] p-5 flex flex-col gap-3">
+    <div className="border-r-2 border-[#292929] p-5 flex flex-col gap-3 shrink-0">
       <Link to="/" className="font-semibold text-2xl mb-4">
         <span className="text-yellow-400">Wordpress</span> Security
       </Link>
