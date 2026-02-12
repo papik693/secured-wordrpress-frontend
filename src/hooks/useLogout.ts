@@ -7,7 +7,7 @@ export const useLogout = () => {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
 
-  return useMutation({
+  const { mutate: logout } = useMutation({
     mutationFn: async () => {
       const data = await api.post('user/logout/').json<{ message: string }>()
       return data
@@ -18,4 +18,6 @@ export const useLogout = () => {
       navigate('/login')
     },
   })
+
+  return { logout }
 }

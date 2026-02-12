@@ -10,7 +10,7 @@ export const useLogin = () => {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
 
-  return useMutation({
+  const { mutate: login } = useMutation({
     mutationFn: async (data: LoginSchemaType) => {
       return api
         .post('user/login/', {
@@ -31,4 +31,5 @@ export const useLogin = () => {
       }
     },
   })
+  return { login }
 }

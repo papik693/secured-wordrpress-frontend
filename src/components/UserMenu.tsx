@@ -5,7 +5,7 @@ import useMe from '../hooks/useMe'
 import Logout from './Logout'
 
 const UserMenu = () => {
-  const { data: me, isLoading } = useMe()
+  const { me, isLoading } = useMe()
   const [isOpen, setIsOpen] = useState(false)
 
   if (isLoading) {

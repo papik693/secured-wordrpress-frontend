@@ -15,10 +15,10 @@ const Login = () => {
     resolver: zodResolver(loginSchema),
   })
 
-  const { mutate } = useLogin()
+  const { login } = useLogin()
 
   const submitHandler = (data: LoginSchemaType) => {
-    mutate(data)
+    login(data)
   }
 
   return (
