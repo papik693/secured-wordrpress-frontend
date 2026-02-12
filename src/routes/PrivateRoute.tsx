@@ -4,7 +4,7 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import useMe from '../hooks/useMe'
 
 const PrivateRoute = () => {
-  const { data, isLoading } = useMe()
+  const { me, isLoading } = useMe()
   if (isLoading) {
     return (
       <div className="flex items-center justify-center w-full h-screen">
@@ -12,7 +12,7 @@ const PrivateRoute = () => {
       </div>
     )
   }
-  if (!data) {
+  if (!me) {
     return <Navigate to="/login" />
   }
   return <Outlet />

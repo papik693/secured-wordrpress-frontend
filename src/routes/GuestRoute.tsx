@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router'
 import useMe from '../hooks/useMe'
 
 const GuestRoute = () => {
-  const { data, isLoading } = useMe()
+  const { me, isLoading } = useMe()
 
   if (isLoading) {
     return (
@@ -13,7 +13,7 @@ const GuestRoute = () => {
     )
   }
 
-  if (data) {
+  if (me) {
     return <Navigate to="/" />
   }
   return <Outlet />
