@@ -1,7 +1,8 @@
 import useMe from '../hooks/useMe'
 
 const Home = () => {
-  const { data: me } = useMe()
+  const { me } = useMe()
+
   return (
     <div>
       <p>{me?.id}</p>

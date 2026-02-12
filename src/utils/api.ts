@@ -6,4 +6,18 @@ export const api = ky.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  hooks: {
+    beforeRequest: [
+      (request) => {
+        console.log(document.cookie)
+
+        const token = document.cookie
+          .split('; ')
+          .find((row) => row.startsWith('csrftoken'))
+          ?.split('=')[1]
+
+        request.headers.set('X-CSRFToken', token as string)
+      },
+    ],
+  },
 })
