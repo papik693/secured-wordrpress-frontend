@@ -4,6 +4,7 @@ import Layout from './layouts/Layout'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import NotFound from './pages/NotFound'
+import Profile from './pages/Profile'
 import SignUp from './pages/SignUp'
 import Users from './pages/Users'
 import GuestRoute from './routes/GuestRoute'
@@ -24,6 +25,7 @@ const App = () => {
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/users" element={<Users />} />
+                <Route path="/profile" element={<Profile />} />
               </Route>
             </Route>
             <Route path="/*" element={<NotFound />} />

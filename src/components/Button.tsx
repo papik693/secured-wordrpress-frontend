@@ -8,7 +8,7 @@ const Button = ({ children, className, ...props }: Props) => {
     <button
       {...props}
       className={cn(
-        'bg-yellow-300 text-[#0B1C2D] cursor-pointer text-lg rounded-lg p-2 hover:bg-yellow-200 transition',
+        'bg-yellow-300 w-full text-[#0B1C2D] cursor-pointer text-lg rounded-lg p-2 hover:bg-yellow-200 transition h-fit',
         className,
       )}
       type="submit"

@@ -7,17 +7,20 @@ export const useLogout = () => {
   const queryClient = useQueryClient()
   const navigate = useNavigate()
 
+  const localLogout = () => {
+    queryClient.clear()
+    navigate('/login')
+  }
   const { mutate: logout } = useMutation({
     mutationFn: async () => {
       const data = await api.post('user/logout/').json<{ message: string }>()
       return data
     },
     onSuccess: ({ message }) => {
-      queryClient.clear()
       toast.success(message)
-      navigate('/login')
+      localLogout()
     },
   })
 
-  return { logout }
+  return { logout, localLogout }
 }

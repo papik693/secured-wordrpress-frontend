@@ -7,10 +7,10 @@ const Logout = () => {
   return (
     <button
       onClick={() => logout()}
-      className="text-red-500 underline cursor-pointer flex gap-2 items-center px-4 font-semibold hover:text-red-300"
+      className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium text-red-400 hover:bg-red-500/10 hover:text-red-300 rounded-lg transition-all group"
     >
-      <CiLogout />
-      Logout
+      <CiLogout className="text-lg group-hover:scale-110 transition-transform" />
+      <span>Logout</span>
     </button>
   )
 }
