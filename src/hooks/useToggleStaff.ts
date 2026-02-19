@@ -1,4 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { HTTPError } from 'ky'
+import { toast } from 'react-toastify'
 import { api } from '../utils/api'
 
 export const useToggleStaff = () => {
@@ -9,6 +11,22 @@ export const useToggleStaff = () => {
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['users'] })
+    },
+    onError: async (err) => {
+      if (err instanceof HTTPError) {
+        const errData = await err.response.json()
+        if (errData.message) {
+          toast.error(errData.message)
+        } else {
+          Object.values(errData).forEach((messages) => {
+            if (Array.isArray(messages)) {
+              messages.forEach((message) => {
+                toast.error(message)
+              })
+            }
+          })
+        }
+      }
     },
   })
 
