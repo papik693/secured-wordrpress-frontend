@@ -45,6 +45,9 @@ const Login = () => {
             type="password"
             className="w-60 sm:w-80"
           />
+          <Link to="/forgot-password" className="hover:underline transition">
+            Forgot password?
+          </Link>
           <Button>Log In</Button>
         </form>
       </FormProvider>

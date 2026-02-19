@@ -1,10 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 import { ToastContainer } from 'react-toastify'
 import Layout from './layouts/Layout'
+import ForgotPassword from './pages/ForgotPassword'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
+import ResetPassword from './pages/ResetPassword'
 import SignUp from './pages/SignUp'
 import Users from './pages/Users'
 import GuestRoute from './routes/GuestRoute'
@@ -20,6 +22,11 @@ const App = () => {
             <Route element={<GuestRoute />}>
               <Route path="/login" element={<Login />} />
               <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route
+                path="/reset-password/:user_id/:token"
+                element={<ResetPassword />}
+              />
             </Route>
             <Route element={<PrivateRoute />}>
               <Route element={<Layout />}>

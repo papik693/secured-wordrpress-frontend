@@ -22,15 +22,16 @@ export const useChangePassword = () => {
     },
     onError: async (err) => {
       if (err instanceof HTTPError) {
-        console.log(err)
         const errData = await err.response.json()
         if (errData.message) {
           toast(errData.message)
         } else {
           Object.values(errData).forEach((messages) => {
-            messages.forEach((message) => {
-              toast.error(message)
-            })
+            if (Array.isArray(messages)) {
+              messages.forEach((message) => {
+                toast.error(message)
+              })
+            }
           })
         }
       }
