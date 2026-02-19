@@ -38,7 +38,7 @@ const ChangePasswordForm = () => {
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(submitHandler)}>
         <h3 className="text-lg mb-3 font-semibold">Change password</h3>
-        <div className="grid grid-cols-3 w-full gap-5 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-5 items-start">
           <Input label="Old Password" name="old_password" type="password" />
           <Input label="New Password" name="new_password" type="password" />
           <div className="mt-9 w-full">
