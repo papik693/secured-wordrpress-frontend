@@ -6,11 +6,13 @@ import Confirm from './Confirm'
 type Props = {
   id: number
   is_staff: boolean
+
+  closeMenu: () => void
 }
 
 type ActionType = 'toggle' | 'delete' | null
 
-const UserTableMenu = ({ id, is_staff }: Props) => {
+const UserTableMenu = ({ id, is_staff, closeMenu }: Props) => {
   const { toggle } = useToggleStaff()
   const { deleteUser } = useDeleteUser()
 
@@ -28,16 +30,17 @@ const UserTableMenu = ({ id, is_staff }: Props) => {
 
   return (
     <>
-      <div className="absolute right-0 mt-2 w-44 bg-[#111] border border-[#333] rounded-lg z-20">
+      <div className="fixed inset-0 z-10" onClick={closeMenu} />
+      <div className="fixed bottom-0 w-full md:absolute md:bottom-auto right-0 mt-2 md:w-56 rounded-xl bg-[#111] border border-white/10 shadow-2xl py-2 z-20 overflow-hidden px-1 transition">
         <button
           onClick={() => setAction('toggle')}
-          className="block w-full px-4 py-2 text-left hover:bg-[#222] cursor-pointer text-green-300"
+          className="flex items-center px-3 py-2 text-sm  hover:bg-white/5 hover:text-green-400 rounded-lg transition-colors  w-full  text-left cursor-pointer text-green-300"
         >
           {is_staff ? 'Remove Permission' : 'Allow User'}
         </button>
         <button
           onClick={() => setAction('delete')}
-          className="block w-full px-4 py-2 text-left hover:bg-[#222] cursor-pointer text-red-400"
+          className="flex items-center px-3 py-2 text-sm  hover:bg-white/5 hover:text-red-500 rounded-lg transition-colors  w-full  text-left  cursor-pointer text-red-400"
         >
           Delete User
         </button>
