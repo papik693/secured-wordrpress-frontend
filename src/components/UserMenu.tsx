@@ -41,11 +41,15 @@ const UserMenu = () => {
               <Link
                 to="/profile"
                 className="flex items-center px-3 py-2 text-sm text-white/80 hover:bg-white/5 hover:text-white rounded-lg transition-colors"
+                onClick={() => setIsOpen(false)}
               >
                 Profile
               </Link>
 
-              <div className="h-px bg-white/5 my-1" />
+              <div
+                className="h-px bg-white/5 my-1"
+                onClick={() => setIsOpen(false)}
+              />
 
               <Logout />
             </div>
