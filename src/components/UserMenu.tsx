@@ -29,7 +29,7 @@ const UserMenu = () => {
             onClick={() => setIsOpen(false)}
           />
 
-          <div className="absolute right-0 mt-2 w-56 rounded-xl bg-[#111] border border-white/10 shadow-2xl py-2 z-20 overflow-hidden">
+          <div className="fixed bottom-0 left-0 w-full md:absolute md:bottom-auto md:left-auto md:right-0 md:top-full md:mt-2 md:w-56 rounded-xl bg-[#111] border border-white/10 shadow-2xl py-2 z-20 overflow-hidden">
             <div className="px-4 py-3 border-b border-white/5 mb-1">
               <p className="text-sm font-medium text-white truncate">
                 {me?.username}
