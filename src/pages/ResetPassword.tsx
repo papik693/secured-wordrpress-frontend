@@ -11,7 +11,7 @@ import {
 import { api } from '../utils/api'
 
 const ResetPassword = () => {
-  const { user_id, token } = useParams()
+  const { userId, token } = useParams()
   const navigate = useNavigate()
   const methods = useForm<ResetPasswordSchemaType>({
     defaultValues: {
@@ -23,7 +23,7 @@ const ResetPassword = () => {
   const submitHandler = async ({ password }: ResetPasswordSchemaType) => {
     const { message } = await api
       .post(`user/reset_password/`, {
-        json: { password, uid: user_id, token },
+        json: { password, uid: userId, token },
       })
       .json<{ message: string }>()
     toast(message)

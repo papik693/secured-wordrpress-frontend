@@ -20,11 +20,11 @@ const ForgotPassword = () => {
   })
 
   const submitHandler = async ({ email }: ForgotPasswordShemaType) => {
-    const { reset_url } = await api
-      .post('user/forgot_password/', { json: { email } })
-      .json<{ reset_url: string }>()
+    const { resetUrl } = await api
+      .post('user/forgot-password/', { json: { email } })
+      .json<{ resetUrl: string }>()
 
-    setRedirectUrl(reset_url)
+    setRedirectUrl(resetUrl)
   }
 
   useEffect(() => {

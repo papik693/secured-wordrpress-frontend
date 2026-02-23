@@ -25,9 +25,9 @@ export const useLogin = () => {
     onError: async (err) => {
       if (err instanceof HTTPError) {
         const errorJson = await err.response.json<{
-          non_field_errors: string[]
+          nonFieldErrors: string[]
         }>()
-        toast.error(errorJson.non_field_errors[0])
+        toast.error(errorJson.nonFieldErrors[0])
       }
     },
   })

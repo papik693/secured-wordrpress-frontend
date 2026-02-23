@@ -14,7 +14,7 @@ export const useChangePassword = () => {
       id?: number
     }) => {
       return api
-        .put(`user/change_password/${id}/`, { json: data })
+        .put(`user/change-password/${id}/`, { json: data })
         .json<{ message: string }>()
     },
     onSuccess: () => {
