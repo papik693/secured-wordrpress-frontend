@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useEffect, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 import Button from '../components/Button'
 import Input from '../components/Input'
 import {
@@ -16,6 +17,7 @@ const ForgotPassword = () => {
     defaultValues: {
       email: '',
     },
+
     resolver: zodResolver(forgotPasswordSchema),
   })
 
@@ -29,7 +31,7 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     if (redirectUrl) {
-      window.location.href = redirectUrl
+      toast(redirectUrl)
     }
   }, [redirectUrl])
 
@@ -51,7 +53,9 @@ const ForgotPassword = () => {
             className="w-60 sm:w-80"
           />
 
-          <Button>Send Reset Email</Button>
+          <Button isLoading={methods.formState.isSubmitting}>
+            Send Reset Email
+          </Button>
         </form>
       </FormProvider>
     </div>

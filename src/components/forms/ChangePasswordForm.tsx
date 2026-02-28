@@ -20,7 +20,7 @@ const ChangePasswordForm = () => {
     resolver: zodResolver(changePasswordSchema),
   })
 
-  const { changePassword } = useChangePassword()
+  const { changePassword, isPending } = useChangePassword()
   const { localLogout } = useLogout()
 
   const submitHandler = (data: ChangePasswordSchemaType) => {
@@ -42,7 +42,7 @@ const ChangePasswordForm = () => {
           <Input label="Old Password" name="oldPassword" type="password" />
           <Input label="New Password" name="newPassword" type="password" />
           <div className="mt-9 w-full">
-            <Button>Change Password</Button>
+            <Button isLoading={isPending}>Change Password</Button>
           </div>
         </div>
       </form>

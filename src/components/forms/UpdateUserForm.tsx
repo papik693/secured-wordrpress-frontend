@@ -20,7 +20,7 @@ const UpdateUserForm = () => {
     resolver: zodResolver(updateUserSchema),
   })
 
-  const { updateUser } = useUpdateUser()
+  const { updateUser, isPending } = useUpdateUser()
 
   const submitHandler = (data: UpdateUserSchemaType) => {
     updateUser({ data, id: me?.id })
@@ -34,7 +34,7 @@ const UpdateUserForm = () => {
           <Input label="Email" name="email" type="text" />
           <Input label="Username" name="username" type="text" />
           <div className="mt-9 w-full">
-            <Button>Update User</Button>
+            <Button isLoading={isPending}>Update User</Button>
           </div>
         </div>
       </form>

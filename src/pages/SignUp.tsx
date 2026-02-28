@@ -1,13 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useMutation } from '@tanstack/react-query'
-import { HTTPError } from 'ky'
 import { FormProvider, useForm } from 'react-hook-form'
 import { Link } from 'react-router'
-import { toast } from 'react-toastify'
 import Button from '../components/Button'
 import Input from '../components/Input'
+import { useSignUp } from '../hooks/useSignUp'
 import { signUpSchema, type SignUpSchemaType } from '../schemas/signUpSchema'
-import { api } from '../utils/api'
 
 const SignUp = () => {
   const methods = useForm<SignUpSchemaType>({
@@ -19,27 +16,10 @@ const SignUp = () => {
     resolver: zodResolver(signUpSchema),
   })
 
-  const { mutate } = useMutation({
-    mutationFn: async (data: SignUpSchemaType) => {
-      return await api.post('user/sign_up/', { json: data }).json()
-    },
-    onSuccess: (data) => {
-      console.log(data)
-    },
-    onError: async (err) => {
-      if (err instanceof HTTPError) {
-        const errorJson = await err.response.json<Record<string, string[]>>()
-        Object.values(errorJson).forEach((messages) => {
-          messages.forEach((message) => {
-            toast.error(message)
-          })
-        })
-      }
-    },
-  })
+  const { isPending, signUp } = useSignUp()
 
   const submitHandler = (data: SignUpSchemaType) => {
-    mutate(data)
+    signUp(data)
   }
 
   return (
@@ -73,7 +53,9 @@ const SignUp = () => {
             type="password"
             className="w-60 sm:w-80"
           />
-          <Button className="mt-3">Sign Up</Button>
+          <Button className="mt-3" isLoading={isPending}>
+            Sign Up
+          </Button>
         </form>
       </FormProvider>
       <div className="mt-5">

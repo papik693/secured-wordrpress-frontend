@@ -5,7 +5,7 @@ import type { ChangePasswordSchemaType } from '../schemas/changePasswordSchema'
 import { api } from '../utils/api'
 
 export const useChangePassword = () => {
-  const { mutate: changePassword } = useMutation({
+  const { mutate: changePassword, isPending } = useMutation({
     mutationFn: async ({
       data,
       id,
@@ -38,5 +38,5 @@ export const useChangePassword = () => {
     },
   })
 
-  return { changePassword }
+  return { changePassword, isPending }
 }

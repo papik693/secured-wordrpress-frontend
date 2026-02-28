@@ -22,7 +22,7 @@ const ResetPassword = () => {
 
   const submitHandler = async ({ password }: ResetPasswordSchemaType) => {
     const { message } = await api
-      .post(`user/reset_password/`, {
+      .post(`user/reset-password/`, {
         json: { password, uid: userId, token },
       })
       .json<{ message: string }>()
@@ -33,7 +33,7 @@ const ResetPassword = () => {
   return (
     <div className="flex justify-center items-center min-h-screen flex-col">
       <h1 className="text-2xl sm:text-3xl font-semibold mb-5">
-        Forgot Password
+        Reset Password
       </h1>
       <FormProvider {...methods}>
         <form
@@ -48,7 +48,9 @@ const ResetPassword = () => {
             className="w-60 sm:w-80"
           />
 
-          <Button>Change Password</Button>
+          <Button isLoading={methods.formState.isSubmitting}>
+            Change Password
+          </Button>
         </form>
       </FormProvider>
     </div>

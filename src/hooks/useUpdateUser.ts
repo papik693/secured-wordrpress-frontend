@@ -6,7 +6,7 @@ import { api } from '../utils/api'
 
 export const useUpdateUser = () => {
   const qc = useQueryClient()
-  const { mutate: updateUser } = useMutation({
+  const { mutate: updateUser, isPending } = useMutation({
     mutationFn: async ({
       data,
       id,
@@ -38,5 +38,5 @@ export const useUpdateUser = () => {
     },
   })
 
-  return { updateUser }
+  return { updateUser, isPending }
 }

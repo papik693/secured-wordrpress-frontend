@@ -15,7 +15,7 @@ const Login = () => {
     resolver: zodResolver(loginSchema),
   })
 
-  const { login } = useLogin()
+  const { login, isPending } = useLogin()
 
   const submitHandler = (data: LoginSchemaType) => {
     login(data)
@@ -48,7 +48,7 @@ const Login = () => {
           <Link to="/forgot-password" className="hover:underline transition">
             Forgot password?
           </Link>
-          <Button>Log In</Button>
+          <Button isLoading={isPending}>Log In</Button>
         </form>
       </FormProvider>
       <div className="mt-5">
