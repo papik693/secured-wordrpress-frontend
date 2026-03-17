@@ -20,7 +20,7 @@ const Users = () => {
               <th className="px-4 py-2">ID</th>
               <th className="px-4 py-2">Username</th>
               <th className="px-4 py-2">Email</th>
-              <th className="px-4 py-2">Allowed</th>
+              <th className="px-4 py-2">Permission</th>
               <th className="px-4 py-2">Actions</th>
             </tr>
           </thead>
