@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { BsThreeDots } from 'react-icons/bs'
 import UserTableMenu from '../components/UserTableMenu'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useGetAllUsers } from '../hooks/useGetAllUsers'
 
 const Users = () => {
+  useDocumentTitle('Users')
   const { users } = useGetAllUsers()
+
   const [openMenuId, setOpenMenuId] = useState<number | null>(null)
 
   const closeMenu = () => {

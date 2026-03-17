@@ -4,6 +4,7 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import Button from '../components/Button'
 import Input from '../components/Input'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import {
   forgotPasswordSchema,
   type ForgotPasswordShemaType,
@@ -11,6 +12,7 @@ import {
 import { api } from '../utils/api'
 
 const ForgotPassword = () => {
+  useDocumentTitle('Forgot Password')
   const [redirectUrl, setRedirectUrl] = useState<string | null>(null)
 
   const methods = useForm<ForgotPasswordShemaType>({

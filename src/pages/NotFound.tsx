@@ -1,6 +1,8 @@
 import { Link } from 'react-router'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 const NotFound = () => {
+  useDocumentTitle('Not Found')
   return (
     <div className="flex items-center justify-center flex-col h-screen">
       <h1 className="text-9xl font-bold text-yellow-400 mb-5">404</h1>

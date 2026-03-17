@@ -3,10 +3,12 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { Link } from 'react-router'
 import Button from '../components/Button'
 import Input from '../components/Input'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useSignUp } from '../hooks/useSignUp'
 import { signUpSchema, type SignUpSchemaType } from '../schemas/signUpSchema'
 
 const SignUp = () => {
+  useDocumentTitle('Sing Up')
   const methods = useForm<SignUpSchemaType>({
     defaultValues: {
       email: '',

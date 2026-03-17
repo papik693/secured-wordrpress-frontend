@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router'
 import { toast } from 'react-toastify'
 import Button from '../components/Button'
 import Input from '../components/Input'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import {
   resetPasswordSchema,
   type ResetPasswordSchemaType,
@@ -11,6 +12,7 @@ import {
 import { api } from '../utils/api'
 
 const ResetPassword = () => {
+  useDocumentTitle('Reset Password')
   const { userId, token } = useParams()
   const navigate = useNavigate()
   const methods = useForm<ResetPasswordSchemaType>({

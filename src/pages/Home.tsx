@@ -1,7 +1,9 @@
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import useMe from '../hooks/useMe'
 
 const Home = () => {
   const { me } = useMe()
+  useDocumentTitle('Home')
 
   return (
     <div>
