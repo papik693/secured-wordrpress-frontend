@@ -4,6 +4,7 @@ import Layout from './layouts/Layout'
 import ForgotPassword from './pages/ForgotPassword'
 import Home from './pages/Home'
 import Login from './pages/Login'
+import Logs from './pages/Logs'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
 import ResetPassword from './pages/ResetPassword'
@@ -34,6 +35,7 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/users" element={<Users />} />
                 <Route path="/rules" element={<Rules />} />
+                <Route path="/logs" element={<Logs />} />
                 <Route path="/profile" element={<Profile />} />
               </Route>
             </Route>

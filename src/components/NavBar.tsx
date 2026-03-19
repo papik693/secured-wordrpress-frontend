@@ -1,5 +1,7 @@
 import { FaHouse, FaUser } from 'react-icons/fa6'
+import { FiActivity } from 'react-icons/fi'
 import { MdRule } from 'react-icons/md'
+
 import NavbarLink from './NavbarLink'
 
 const NavBar = () => {
@@ -14,6 +16,9 @@ const NavBar = () => {
       </NavbarLink>
       <NavbarLink to="/rules">
         <MdRule /> Rules
+      </NavbarLink>
+      <NavbarLink to="/logs">
+        <FiActivity /> Logs
       </NavbarLink>
     </div>
   )
