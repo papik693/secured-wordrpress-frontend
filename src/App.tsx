@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
 import ResetPassword from './pages/ResetPassword'
+import Rules from './pages/Rules'
 import SignUp from './pages/SignUp'
 import Users from './pages/Users'
 import GuestRoute from './routes/GuestRoute'
@@ -32,6 +33,7 @@ const App = () => {
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/users" element={<Users />} />
+                <Route path="/rules" element={<Rules />} />
                 <Route path="/profile" element={<Profile />} />
               </Route>
             </Route>
