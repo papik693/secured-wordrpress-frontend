@@ -1,11 +1,12 @@
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+import PageTitle from '../components/PageTitle'
 import { useGetRules } from '../hooks/useGetRules'
 
 const Rules = () => {
   const { rules, isLoading } = useGetRules()
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold mb-6 text-white/90">WAF Rules</h2>
+      <PageTitle>Rules</PageTitle>
       {isLoading && (
         <AiOutlineLoading3Quarters className="animate-spin text-5xl" />
       )}

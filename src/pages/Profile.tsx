@@ -1,12 +1,13 @@
 import ChangePasswordForm from '../components/forms/ChangePasswordForm'
 import UpdateUserForm from '../components/forms/UpdateUserForm'
+import PageTitle from '../components/PageTitle'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 const Profile = () => {
   useDocumentTitle('Profile')
   return (
-    <div className="flex flex-col gap-5">
-      <h2 className="font-bold text-3xl">Profile</h2>
+    <div className="flex flex-col gap-5 p-6">
+      <PageTitle>Profile</PageTitle>
       <div className="flex flex-col gap-10">
         <ChangePasswordForm />
         <UpdateUserForm />

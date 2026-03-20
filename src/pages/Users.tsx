@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { BsThreeDots } from 'react-icons/bs'
+import PageTitle from '../components/PageTitle'
 import UserTableMenu from '../components/UserTableMenu'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useGetAllUsers } from '../hooks/useGetAllUsers'
@@ -15,7 +16,8 @@ const Users = () => {
   }
 
   return (
-    <div className="w-full overflow-visible">
+    <div className="w-full overflow-visible p-6">
+      <PageTitle>Users</PageTitle>
       <div className="rounded-xl border border-[#FFFFFF16] overflow-x-auto md:overflow-visible">
         <table className="min-w-175 w-full border-collapse">
           <thead className="bg-[#FFFFFF11] text-gray-400 text-left text-sm">
