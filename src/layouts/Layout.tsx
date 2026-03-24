@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router'
+import ChatWidget from '../components/ChatWidget'
 import NavBar from '../components/NavBar'
 import TopBar from '../components/TopBar'
 
@@ -14,6 +15,7 @@ const Layout = () => {
           <Outlet />
         </div>
       </main>
+      <ChatWidget />
     </div>
   )
 }
