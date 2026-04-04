@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify'
 import Layout from './layouts/Layout'
 import CloudtrailEvents from './pages/CloudtrailEvents'
 import ForgotPassword from './pages/ForgotPassword'
+import GuarddutyFindings from './pages/GuarddutyFindings'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import NotFound from './pages/NotFound'
@@ -40,6 +41,10 @@ const App = () => {
                 <Route
                   path="/cloudtrail-events"
                   element={<CloudtrailEvents />}
+                />
+                <Route
+                  path="/guardduty-findings"
+                  element={<GuarddutyFindings />}
                 />
                 <Route path="/profile" element={<Profile />} />
               </Route>
