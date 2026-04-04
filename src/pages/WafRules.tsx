@@ -1,4 +1,4 @@
-import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+import Loading from '../components/Loading'
 import PageTitle from '../components/PageTitle'
 import { useGetRules } from '../hooks/useGetRules'
 
@@ -7,9 +7,7 @@ const WafRules = () => {
   return (
     <div className="p-6">
       <PageTitle>WAF Rules</PageTitle>
-      {isLoading && (
-        <AiOutlineLoading3Quarters className="animate-spin text-5xl" />
-      )}
+      {isLoading && <Loading />}
       <div className="overflow-hidden bg-[#FFFFFF11] shadow sm:rounded-md">
         <ul className="divide-y divide-[#292929]">
           {rules?.map((rule) => (

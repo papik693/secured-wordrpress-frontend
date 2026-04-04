@@ -1,5 +1,5 @@
-import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import Finding from '../components/Finding'
+import Loading from '../components/Loading'
 import PageTitle from '../components/PageTitle'
 import { useGetFindings } from '../hooks/useGetFindings'
 
@@ -9,9 +9,7 @@ const GuarddutyFindings = () => {
   return (
     <div className="p-6">
       <PageTitle>Guardduty Findings</PageTitle>
-      {isLoading && (
-        <AiOutlineLoading3Quarters className="animate-spin text-5xl" />
-      )}
+      {isLoading && <Loading />}
       <div className="flex flex-col gap-3">
         {findings?.map((finding) => (
           <Finding key={finding.id} finding={finding} />

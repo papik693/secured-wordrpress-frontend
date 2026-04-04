@@ -1,4 +1,4 @@
-import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+import Loading from '../components/Loading'
 import PageTitle from '../components/PageTitle'
 import { useGetLogs } from '../hooks/useGetLogs'
 import { cn } from '../utils/cn'
@@ -10,7 +10,7 @@ const WafLogs = () => {
     <div className="p-6">
       <PageTitle>WAF Logs</PageTitle>
       {isLoading ? (
-        <AiOutlineLoading3Quarters className="animate-spin text-5xl" />
+        <Loading />
       ) : (
         <div className="border border-[#FFFFFF16] h-100 rounded-lg font-mono p-4 flex flex-col justify-end">
           {reversedLogs.length > 0 &&
