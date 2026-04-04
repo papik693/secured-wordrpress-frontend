@@ -12,5 +12,5 @@ export const useGetRules = () => {
     queryKey: ['rules'],
     queryFn: getRules,
   })
-  return { rules: data?.rules, isLoading }
+  return { rules: data?.rules ?? [], isLoading }
 }
