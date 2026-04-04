@@ -1,106 +1,12 @@
-export const useGetLogs = () => {
-  const sampleLogs = [
-    {
-      '@timestamp': '2026-03-24T17:58:12Z',
-      action: 'BLOCK',
-      clientIp: '185.234.219.45',
-      uri: '/wp-login.php',
-      method: 'POST',
-      country: 'RU',
-      terminatingRuleId: 'AWS-AWSManagedRulesCommonRuleSet',
-      terminatingRuleType: 'MANAGED_RULE_GROUP',
-    },
-    {
-      '@timestamp': '2026-03-24T17:57:03Z',
-      action: 'ALLOW',
-      clientIp: '83.12.54.199',
-      uri: '/',
-      method: 'GET',
-      country: 'PL',
-      terminatingRuleId: '-',
-      terminatingRuleType: '-',
-    },
-    {
-      '@timestamp': '2026-03-24T17:55:44Z',
-      action: 'BLOCK',
-      clientIp: '45.133.1.77',
-      uri: '/xmlrpc.php',
-      method: 'POST',
-      country: 'CN',
-      terminatingRuleId: 'AWS-AWSManagedRulesKnownBadInputsRuleSet',
-      terminatingRuleType: 'MANAGED_RULE_GROUP',
-    },
-    {
-      '@timestamp': '2026-03-24T17:54:20Z',
-      action: 'BLOCK',
-      clientIp: '102.165.32.11',
-      uri: '/wp-admin',
-      method: 'GET',
-      country: 'NG',
-      terminatingRuleId: 'AWS-AWSManagedRulesAdminProtectionRuleSet',
-      terminatingRuleType: 'MANAGED_RULE_GROUP',
-    },
-    {
-      '@timestamp': '2026-03-24T17:53:02Z',
-      action: 'ALLOW',
-      clientIp: '192.168.1.5',
-      uri: '/product/123',
-      method: 'GET',
-      country: 'PL',
-      terminatingRuleId: '-',
-      terminatingRuleType: '-',
-    },
-    {
-      '@timestamp': '2026-03-24T17:52:11Z',
-      action: 'BLOCK',
-      clientIp: '23.92.18.201',
-      uri: '/.env',
-      method: 'GET',
-      country: 'US',
-      terminatingRuleId: 'AWS-AWSManagedRulesCommonRuleSet',
-      terminatingRuleType: 'MANAGED_RULE_GROUP',
-    },
-    {
-      '@timestamp': '2026-03-24T17:50:55Z',
-      action: 'BLOCK',
-      clientIp: '91.134.88.12',
-      uri: '/wp-json/wp/v2/users',
-      method: 'GET',
-      country: 'FR',
-      terminatingRuleId: 'AWS-AWSManagedRulesCommonRuleSet',
-      terminatingRuleType: 'MANAGED_RULE_GROUP',
-    },
-    {
-      '@timestamp': '2026-03-24T17:49:31Z',
-      action: 'ALLOW',
-      clientIp: '77.65.22.10',
-      uri: '/blog/post-1',
-      method: 'GET',
-      country: 'DE',
-      terminatingRuleId: '-',
-      terminatingRuleType: '-',
-    },
-    {
-      '@timestamp': '2026-03-24T17:48:09Z',
-      action: 'BLOCK',
-      clientIp: '5.188.10.22',
-      uri: '/wp-login.php',
-      method: 'POST',
-      country: 'RU',
-      terminatingRuleId: 'AWS-AWSManagedRulesBruteForceRuleSet',
-      terminatingRuleType: 'MANAGED_RULE_GROUP',
-    },
-    {
-      '@timestamp': '2026-03-24T17:47:00Z',
-      action: 'BLOCK',
-      clientIp: '103.21.244.5',
-      uri: '/admin.php',
-      method: 'GET',
-      country: 'IN',
-      terminatingRuleId: 'AWS-AWSManagedRulesAdminProtectionRuleSet',
-      terminatingRuleType: 'MANAGED_RULE_GROUP',
-    },
-  ]
+import { useQuery } from '@tanstack/react-query'
+import type { LogsRequest } from '../types/log'
+import { api } from '../utils/api'
 
-  return { logs: sampleLogs }
+export const useGetLogs = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ['logs'],
+    queryFn: () => api.get('aws/waf/logs/').json<LogsRequest>(),
+  })
+
+  return { logs: data?.results ?? [], isLoading }
 }

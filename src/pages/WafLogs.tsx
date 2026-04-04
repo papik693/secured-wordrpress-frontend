@@ -1,32 +1,38 @@
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import PageTitle from '../components/PageTitle'
 import { useGetLogs } from '../hooks/useGetLogs'
 import { cn } from '../utils/cn'
 
 const WafLogs = () => {
-  const { logs } = useGetLogs()
+  const { logs, isLoading } = useGetLogs()
   const reversedLogs = [...logs].reverse()
   return (
     <div className="p-6">
       <PageTitle>WAF Logs</PageTitle>
-      <div className="border border-[#FFFFFF16] h-100 rounded-lg font-mono p-4 flex flex-col justify-end">
-        {reversedLogs.reverse().map((log) => {
-          const formatLog = `[${log['@timestamp']}] ${log.action} ${log.method} ${log.clientIp} ${log.country}  ${log.terminatingRuleId} ${log.terminatingRuleType}`
-          return (
-            <p
-              key={log['@timestamp']}
-              className={cn(
-                log.action === 'BLOCK' && 'text-red-700',
-                'text-sm',
-              )}
-            >
-              {formatLog}
-            </p>
-          )
-        })}
-        <span className="h-5 w-1 bg-white inline-block animate-blink">
-          &nbsp;
-        </span>
-      </div>
+      {isLoading ? (
+        <AiOutlineLoading3Quarters className="animate-spin text-5xl" />
+      ) : (
+        <div className="border border-[#FFFFFF16] h-100 rounded-lg font-mono p-4 flex flex-col justify-end">
+          {reversedLogs.length > 0 &&
+            reversedLogs.map((log) => {
+              const formatLog = `[${log['@timestamp']}] ${log.action} ${log.method} ${log.clientIp} ${log.country}  ${log.terminatingRuleId} ${log.terminatingRuleType}`
+              return (
+                <p
+                  key={log['@timestamp']}
+                  className={cn(
+                    log.action === 'BLOCK' && 'text-red-700',
+                    'text-sm',
+                  )}
+                >
+                  {formatLog}
+                </p>
+              )
+            })}
+          {isLoading === false && reversedLogs.length === 0 && (
+            <p>No Logs Found</p>
+          )}
+        </div>
+      )}
     </div>
   )
 }
