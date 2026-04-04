@@ -3,14 +3,10 @@ import { type EventResponse } from '../types/event'
 import { api } from '../utils/api'
 
 export const useGetEvents = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryFn: () => api.get('aws/cloudtrail/events').json<EventResponse>(),
     queryKey: ['events'],
   })
 
-  if (data === undefined) {
-    return {}
-  }
-
-  return { events: data.events }
+  return { events: data?.events ?? [], isLoading }
 }
