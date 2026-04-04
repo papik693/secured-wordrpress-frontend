@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { BsThreeDots } from 'react-icons/bs'
 import PageTitle from '../components/PageTitle'
 import UserTableMenu from '../components/UserTableMenu'
@@ -7,7 +8,7 @@ import { useGetAllUsers } from '../hooks/useGetAllUsers'
 
 const Users = () => {
   useDocumentTitle('Users')
-  const { users } = useGetAllUsers()
+  const { users, isLoading } = useGetAllUsers()
 
   const [openMenuId, setOpenMenuId] = useState<number | null>(null)
 
@@ -18,6 +19,9 @@ const Users = () => {
   return (
     <div className="w-full overflow-visible p-6">
       <PageTitle>Users</PageTitle>
+      {isLoading && (
+        <AiOutlineLoading3Quarters className="animate-spin text-5xl" />
+      )}
       <div className="rounded-xl border border-[#FFFFFF16] overflow-x-auto md:overflow-visible">
         <table className="min-w-175 w-full border-collapse">
           <thead className="bg-[#FFFFFF11] text-gray-400 text-left text-sm">
