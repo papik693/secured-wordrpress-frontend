@@ -3,14 +3,10 @@ import type { FindingRequest } from '../types/finding'
 import { api } from '../utils/api'
 
 export const useGetFindings = () => {
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['findings'],
     queryFn: () => api.get('aws/guardduty/findings/').json<FindingRequest>(),
   })
 
-  if (data === undefined) {
-    return {}
-  }
-
-  return { findings: data.findings }
+  return { findings: data?.findings ?? [], isLoading }
 }
