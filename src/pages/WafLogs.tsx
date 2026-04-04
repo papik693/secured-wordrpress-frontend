@@ -2,12 +2,12 @@ import PageTitle from '../components/PageTitle'
 import { useGetLogs } from '../hooks/useGetLogs'
 import { cn } from '../utils/cn'
 
-const Logs = () => {
+const WafLogs = () => {
   const { logs } = useGetLogs()
   const reversedLogs = [...logs].reverse()
   return (
     <div className="p-6">
-      <PageTitle>Logs</PageTitle>
+      <PageTitle>WAF Logs</PageTitle>
       <div className="border border-[#FFFFFF16] h-100 rounded-lg font-mono p-4 flex flex-col justify-end">
         {reversedLogs.reverse().map((log) => {
           const formatLog = `[${log['@timestamp']}] ${log.action} ${log.method} ${log.clientIp} ${log.country}  ${log.terminatingRuleId} ${log.terminatingRuleType}`
@@ -31,4 +31,4 @@ const Logs = () => {
   )
 }
 
-export default Logs
+export default WafLogs

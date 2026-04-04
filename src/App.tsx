@@ -1,16 +1,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 import { ToastContainer } from 'react-toastify'
 import Layout from './layouts/Layout'
+import CloudtrailEvents from './pages/CloudtrailEvents'
 import ForgotPassword from './pages/ForgotPassword'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import Logs from './pages/Logs'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
 import ResetPassword from './pages/ResetPassword'
-import Rules from './pages/Rules'
 import SignUp from './pages/SignUp'
 import Users from './pages/Users'
+import WafLogs from './pages/WafLogs'
+import WafRules from './pages/WafRules'
 import GuestRoute from './routes/GuestRoute'
 import PrivateRoute from './routes/PrivateRoute'
 
@@ -34,8 +35,12 @@ const App = () => {
               <Route element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/users" element={<Users />} />
-                <Route path="/rules" element={<Rules />} />
-                <Route path="/logs" element={<Logs />} />
+                <Route path="/waf-rules" element={<WafRules />} />
+                <Route path="/waf-logs" element={<WafLogs />} />
+                <Route
+                  path="/cloudtrail-events"
+                  element={<CloudtrailEvents />}
+                />
                 <Route path="/profile" element={<Profile />} />
               </Route>
             </Route>

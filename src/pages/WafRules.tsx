@@ -2,11 +2,11 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import PageTitle from '../components/PageTitle'
 import { useGetRules } from '../hooks/useGetRules'
 
-const Rules = () => {
+const WafRules = () => {
   const { rules, isLoading } = useGetRules()
   return (
     <div className="p-6">
-      <PageTitle>Rules</PageTitle>
+      <PageTitle>WAF Rules</PageTitle>
       {isLoading && (
         <AiOutlineLoading3Quarters className="animate-spin text-5xl" />
       )}
@@ -64,4 +64,4 @@ const Rules = () => {
   )
 }
 
-export default Rules
+export default WafRules
