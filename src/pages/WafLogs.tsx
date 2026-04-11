@@ -1,11 +1,14 @@
 import Loading from '../components/Loading'
 import PageTitle from '../components/PageTitle'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useGetLogs } from '../hooks/useGetLogs'
 import { cn } from '../utils/cn'
 
 const WafLogs = () => {
+  useDocumentTitle('WAF Logs')
   const { logs, isLoading } = useGetLogs()
   const reversedLogs = [...logs].reverse()
+
   return (
     <div className="p-6">
       <PageTitle>WAF Logs</PageTitle>

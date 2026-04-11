@@ -1,9 +1,12 @@
 import Loading from '../components/Loading'
 import PageTitle from '../components/PageTitle'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useGetRules } from '../hooks/useGetRules'
 
 const WafRules = () => {
+  useDocumentTitle('WAF Rules')
   const { rules, isLoading } = useGetRules()
+
   return (
     <div className="p-6">
       <PageTitle>WAF Rules</PageTitle>

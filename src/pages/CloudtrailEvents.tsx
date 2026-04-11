@@ -1,9 +1,11 @@
 import Event from '../components/Event'
 import Loading from '../components/Loading'
 import PageTitle from '../components/PageTitle'
+import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useGetEvents } from '../hooks/useGetEvents'
 
 const CloudtrailEvents = () => {
+  useDocumentTitle('Cloudtrail Events')
   const { events, isLoading } = useGetEvents()
 
   return (
