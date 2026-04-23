@@ -6,10 +6,12 @@ const NavbarLink = ({ className, children, ...props }: NavLinkProps) => {
     <NavLink
       className={({ isActive }) =>
         cn(
-          'text-sm font-medium transition-colors pb-3 flex items-center gap-2',
+          'text-sm font-medium transition-colors h-full flex items-center gap-2',
+          'md:h-full md:pb-3 md:border-b-2',
+          'py-2 border-l-2 md:border-l-0 pl-3 md:pl-0',
           isActive
-            ? ' text-white border-b-2 border-white'
-            : ' text-white/60 hover:text-white',
+            ? ' text-white md:border-b-2 md:border-white'
+            : ' text-white/60 hover:text-white border-transparent',
           className,
         )
       }
