@@ -9,7 +9,7 @@ const Home = () => {
         <span className="text-yellow-400">Wordpress</span> Security
       </h1>
       <p className="text-center mt-10 text-lg">
-        This is a app where you can see your AWS security
+        Real-time insights and monitoring for your cloud infrastructure
       </p>
     </div>
   )
