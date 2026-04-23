@@ -11,20 +11,20 @@ const WafRules = () => {
     <div className="p-6">
       <PageTitle>WAF Rules</PageTitle>
       {isLoading && <Loading />}
-      <div className="overflow-hidden bg-[#FFFFFF11] shadow sm:rounded-md">
+      <div className=" bg-[#FFFFFF11] shadow sm:rounded-md">
         <ul className="divide-y divide-[#292929]">
           {rules?.map((rule) => (
             <li key={rule.name} className="p-4 hover:bg-[#0A0A0A] transition">
               <div className="flex items-center justify-between">
-                <div className="flex flex-col">
+                <div className="flex flex-col min-w-0">
                   <span className="text-xs font-mono text-gray-400">
                     Priority {rule.priority}
                   </span>
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-lg font-semibold text-white wrap-break-word overflow-hidden">
                     {rule.name}
                   </h3>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 p-2">
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-bold ${
                       rule.action.Block
