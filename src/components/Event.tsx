@@ -14,12 +14,22 @@ const Event = ({ event }: Props) => {
   return (
     <div
       key={event.eventId}
-      className="grid grid-cols-2 bg-[#0A0A0A] border rounded-lg p-3 border-[#FFFFFF16] relative gap-2"
+      className="flex flex-col bg-[#0A0A0A] border rounded-lg p-4 border-[#FFFFFF16] relative gap-4"
     >
-      <p>Time: {formattedDate}</p>
-      <p>Name: {event.eventName}</p>
-      <p>Source: {event.eventSource}</p>
-      {event.username && <p>Username: {event.username}</p>}
+      <p>
+        <span className="font-bold">Time:</span> {formattedDate}
+      </p>
+      <p>
+        <span className="font-bold">Name:</span> {event.eventName}
+      </p>
+      <p>
+        <span className="font-bold">Source:</span> {event.eventSource}
+      </p>
+      {event.username && (
+        <p>
+          <span className="font-bold">Username:</span> {event.username}
+        </p>
+      )}
       {event.resources.length > 0 && (
         <button
           className="absolute right-4 top-3 text-3xl cursor-pointer p-2 hover:bg-[#FFFFFF16] rounded-lg transition"
@@ -33,10 +43,16 @@ const Event = ({ event }: Props) => {
           {event.resources.map((resource) => (
             <div
               key={resource.resourceName}
-              className="grid grid-cols-2 gap-2 p-1"
+              className="grid lg:grid-cols-2 gap-2 p-1"
             >
-              <p>Resource Name: {resource.resourceName}</p>
-              <p>Resource Type: {resource.resourceType}</p>
+              <p>
+                <span className="font-semibold">Resource Name:</span>{' '}
+                {resource.resourceName}
+              </p>
+              <p>
+                <span className="font-semibold">Resource Type:</span>{' '}
+                {resource.resourceType}
+              </p>
             </div>
           ))}
         </div>
