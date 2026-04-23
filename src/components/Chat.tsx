@@ -2,7 +2,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
 import { useGetChat } from '../hooks/useGetChat'
 import { useSendMessage } from '../hooks/useSendMessage'
 import {
@@ -50,9 +49,7 @@ const Chat = () => {
             >
               {m.role === 'assistant' ? (
                 <div className="prose mx-auto">
-                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                    {m.content}
-                  </ReactMarkdown>
+                  <ReactMarkdown>{m.content}</ReactMarkdown>
                 </div>
               ) : (
                 m.content

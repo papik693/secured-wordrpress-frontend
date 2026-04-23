@@ -36,7 +36,7 @@ export const useSendMessage = () => {
       const aiMessage: Message = {
         id: Date.now() + 1,
         content: data.output,
-        role: 'chat',
+        role: 'assistant',
       }
       queryClient.setQueryData<{ messages: Message[] }>(
         ['messages'],
