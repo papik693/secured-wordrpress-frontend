@@ -15,7 +15,7 @@ const ChatWidget = () => {
         </button>
 
         {open && (
-          <div className="absolute bottom-full mb-3 right-0 bg-[#0A0A0A] border-[#FFFFFF16] border p-4 rounded-lg shadow min-w-87.5 lg:min-w-150">
+          <div className="absolute bottom-full mb-3 right-0 bg-[#0A0A0A] border-[#FFFFFF16] border p-2 lg:p-4 rounded-lg shadow min-w-80 lg:min-w-150">
             <Chat />
           </div>
         )}
