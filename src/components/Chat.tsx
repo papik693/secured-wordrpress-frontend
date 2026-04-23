@@ -1,15 +1,18 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { useGetChat } from '../hooks/useGetChat'
 import { useSendMessage } from '../hooks/useSendMessage'
 import {
   sendMessageSchema,
   type SendMessageSchemaType,
 } from '../schemas/sendMessageSchema'
+
 const Chat = () => {
   const { messages } = useGetChat()
+
   const messageEndRef = useRef<HTMLDivElement>(null)
   const { mutate, isPending } = useSendMessage()
   const { register, handleSubmit, reset } = useForm<SendMessageSchemaType>({
@@ -21,9 +24,17 @@ const Chat = () => {
     reset()
   }
 
+  console.log(messages)
+
+  useEffect(() => {
+    if (messageEndRef.current) {
+      messageEndRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [messages])
+
   return (
     <div className="flex flex-col gap-4 w-full">
-      <div className="flex flex-col gap-4 overflow-y-auto max-h-[40vh] p-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#FFFFFF16] [&::-webkit-scrollbar-thumb]:rounded-lg w-125">
+      <div className="flex flex-col gap-4 overflow-y-auto max-h-[40vh] p-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#FFFFFF16] [&::-webkit-scrollbar-thumb]:rounded-lg">
         {messages?.map((m) => (
           <div
             className={` ${m.role === 'user' ? 'self-end' : 'self-start'}`}
@@ -37,9 +48,11 @@ const Chat = () => {
                   : 'bg-black border border-[#FFFFFF16]'
               }`}
             >
-              {m.role === 'chat' ? (
+              {m.role === 'assistant' ? (
                 <div className="prose mx-auto">
-                  <ReactMarkdown>{m.content}</ReactMarkdown>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {m.content}
+                  </ReactMarkdown>
                 </div>
               ) : (
                 m.content
