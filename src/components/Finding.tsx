@@ -11,7 +11,9 @@ const Finding = ({ finding }: Props) => {
   }
   return (
     <div className="bg-[#0F0F0F] border rounded-lg p-4 border-[#FFFFFF16]">
-      <p className="text-sm mb-2">Type: {finding.type}</p>
+      <p className="text-sm mb-2 wrap-break-word overflow-hidden">
+        Type: {finding.type}
+      </p>
       <h3 className="text-lg font-semibold">{finding.title}</h3>
       <div
         className={`${getSeverityColor(finding.severity)} font-semibold mb-5 text-xl`}
