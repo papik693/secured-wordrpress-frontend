@@ -1,4 +1,5 @@
 import Loading from '../components/Loading'
+import PageSubtitle from '../components/PageSubtitle'
 import PageTitle from '../components/PageTitle'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useGetLogs } from '../hooks/useGetLogs'
@@ -12,6 +13,10 @@ const WafLogs = () => {
   return (
     <div className="p-6">
       <PageTitle>WAF Logs</PageTitle>
+      <PageSubtitle>
+        Here are the detailed request logs showing how your firewall handled incoming
+        traffic, including blocked and allowed requests.
+      </PageSubtitle>
       {isLoading ? (
         <Loading />
       ) : (

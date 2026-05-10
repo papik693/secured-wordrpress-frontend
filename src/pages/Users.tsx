@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BsThreeDots } from 'react-icons/bs'
 import Loading from '../components/Loading'
+import PageSubtitle from '../components/PageSubtitle'
 import PageTitle from '../components/PageTitle'
 import UserTableMenu from '../components/UserTableMenu'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
@@ -18,6 +19,9 @@ const Users = () => {
   return (
     <div className="w-full overflow-visible p-6">
       <PageTitle>Users</PageTitle>
+      <PageSubtitle>
+        Here are the users that have access to this dashboard
+      </PageSubtitle>
       {isLoading ? (
         <Loading />
       ) : (

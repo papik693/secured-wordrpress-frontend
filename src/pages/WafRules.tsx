@@ -1,4 +1,5 @@
 import Loading from '../components/Loading'
+import PageSubtitle from '../components/PageSubtitle'
 import PageTitle from '../components/PageTitle'
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 import { useGetRules } from '../hooks/useGetRules'
@@ -10,6 +11,10 @@ const WafRules = () => {
   return (
     <div className="p-6">
       <PageTitle>WAF Rules</PageTitle>
+      <PageSubtitle>
+        Here are the security rules that protect your website by detecting and
+        blocking malicious traffic and common web attacks.
+      </PageSubtitle>
       {isLoading && <Loading />}
       <div className=" bg-[#FFFFFF11] shadow sm:rounded-md">
         <ul className="divide-y divide-[#292929]">
