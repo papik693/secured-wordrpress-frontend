@@ -18,6 +18,8 @@ Run App:
 npm run dev
 ```
 
+---
+
 ## Setup Build
 
 Install Packages:
@@ -38,8 +40,17 @@ Build:
 npm run build
 ```
 
-Run App:
+## Production Output
 
-```bash
-npm run preview
+After building, Vite generates a production-ready app in the `dist/` folder:
+
+```txt
+dist/
+├── assets/
+├── index.html
 ```
+
+- `dist/index.html` → main entry HTML file for production
+- `dist/assets/` → compiled JavaScript, CSS, and static assets
+
+You can deploy the **entire `dist/` folder** to any static hosting provider (Vercel, Netlify, GitHub Pages, etc.).
