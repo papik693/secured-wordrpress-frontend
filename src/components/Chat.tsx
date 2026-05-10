@@ -33,15 +33,17 @@ const Chat = () => {
 
   return (
     <div className="flex flex-col gap-4 w-full">
-      <div className="flex flex-col gap-4 overflow-y-auto max-h-[40vh] p-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#FFFFFF16] [&::-webkit-scrollbar-thumb]:rounded-lg">
+      <div className="flex flex-col gap-4 overflow-y-auto h-[50vh] sm:h-[60vh] p-2 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-[#FFFFFF16] [&::-webkit-scrollbar-thumb]:rounded-lg">
         {messages?.map((m) => (
           <div
-            className={` ${m.role === 'user' ? 'self-end' : 'self-start'}`}
+            className={`flex flex-col max-w-[85%] ${m.role === 'user' ? 'self-end' : 'self-start'}`}
             key={m.id}
           >
-            <div className="text-sm text-gray-300 mb-1">{m.role}</div>
+            <div className="text-xs sm:text-sm text-gray-300 mb-1 capitalize">
+              {m.role}
+            </div>
             <div
-              className={`${'p-2 rounded-lg'} ${
+              className={`${'p-2 rounded-lg break-all'} ${
                 m.role === 'user'
                   ? 'bg-yellow-300 text-[#0B1C2D]'
                   : 'bg-black border border-[#FFFFFF16]'

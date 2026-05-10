@@ -5,7 +5,7 @@ import Chat from './Chat'
 const ChatWidget = () => {
   const [open, setOpen] = useState(false)
   return (
-    <div className="fixed bottom-10 right-10">
+    <div className="fixed bottom-4 right-4 sm:bottom-10 sm:right-10">
       <div className="relative">
         <button
           className="bg-yellow-400 border  border-yellow-500 text-4xl lg:text-5xl text-[#0B1C2D] cursor-pointer p-3 lg rounded-full hover:bg-yellow-200 transition hover:scale-110"
@@ -15,7 +15,7 @@ const ChatWidget = () => {
         </button>
 
         {open && (
-          <div className="absolute bottom-full mb-3 right-0 bg-[#0A0A0A] border-[#FFFFFF16] border p-2 lg:p-4 rounded-lg shadow min-w-80 lg:min-w-150">
+          <div className="absolute bottom-full mb-3 right-0 bg-[#0A0A0A] border-[#FFFFFF16] border p-2 lg:p-4 rounded-lg shadow w-[calc(100vw-2rem)] sm:w-100 lg:w-137.5 max-w-[95vw]">
             <Chat />
           </div>
         )}
