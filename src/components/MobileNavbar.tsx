@@ -29,23 +29,35 @@ const MobileNavbar = () => {
             onClick={() => setIsOpen(false)}
           />
           <div className="fixed bottom-0 left-0 w-full md:absolute md:bottom-auto md:left-auto md:right-0 md:top-full md:mt-2 md:w-56 rounded-xl bg-[#111] border border-white/10 shadow-2xl py-2 z-20 overflow-hidden">
-            <NavbarLink to="/">
+            <NavbarLink to="/" onClick={() => setIsOpen((prev) => !prev)}>
               <FaHouse />
               Home
             </NavbarLink>
-            <NavbarLink to="/users">
+            <NavbarLink to="/users" onClick={() => setIsOpen((prev) => !prev)}>
               <FaUser /> Users
             </NavbarLink>
-            <NavbarLink to="/waf-rules">
+            <NavbarLink
+              to="/waf-rules"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
               <MdRule /> WAF Rules
             </NavbarLink>
-            <NavbarLink to="/waf-logs">
+            <NavbarLink
+              to="/waf-logs"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
               <FiActivity /> WAF Logs
             </NavbarLink>
-            <NavbarLink to="/cloudtrail-events">
+            <NavbarLink
+              to="/cloudtrail-events"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
               <LuHistory /> Cloudtrail Events
             </NavbarLink>
-            <NavbarLink to="/guardduty-findings">
+            <NavbarLink
+              to="/guardduty-findings"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
               <LuShield /> Guardduty Findings
             </NavbarLink>
           </div>
