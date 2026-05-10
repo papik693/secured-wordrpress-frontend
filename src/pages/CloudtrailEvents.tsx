@@ -14,7 +14,7 @@ const CloudtrailEvents = () => {
       <PageTitle>Cloudtrail Events</PageTitle>
       <PageSubtitle>
         Here are the activity records tracking actions and changes made within
-        your AWS environment for auditing and monitoring purposes
+        your AWS environment for auditing and monitoring purposes.
       </PageSubtitle>
       {isLoading && <Loading />}
       <div className="flex flex-col gap-5">

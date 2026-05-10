@@ -20,7 +20,7 @@ const Users = () => {
     <div className="w-full overflow-visible p-6">
       <PageTitle>Users</PageTitle>
       <PageSubtitle>
-        Here are the users that have access to this dashboard
+        Here are the users that have access to this dashboard.
       </PageSubtitle>
       {isLoading ? (
         <Loading />
